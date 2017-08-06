@@ -13,12 +13,13 @@ class Game
 
   def play(field)
     @board[field] = @current_turn
+    print_board
     switch_turns
   end
 
   private
   def print_board
-    board = @board.map { |value| " " if value.nil? }
+    board = @board.map { |value| value.nil? ? " " : value.to_s }
     puts "|#{board[0]}|#{board[1]}|#{board[2]}|"
     puts "|#{board[3]}|#{board[4]}|#{board[5]}|"
     puts "|#{board[6]}|#{board[7]}|#{board[8]}|"
