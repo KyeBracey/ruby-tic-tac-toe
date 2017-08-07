@@ -55,4 +55,15 @@ describe Game do
       expect { game.play(0) }.to raise_error('Cannot claim a field which is already taken - please try again')
     end
   end
+
+  describe '#in_progress?' do
+    it 'returns false if a game has not been started' do
+      expect(game.in_progress?).to eq(false)
+    end
+
+    it 'returns true after a game is started' do
+      game.start
+      expect(game.in_progress?).to eq(true)
+    end
+  end
 end

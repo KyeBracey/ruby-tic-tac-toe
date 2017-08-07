@@ -5,9 +5,11 @@ class Game
     @board = Array.new(9)
     @players = [:X, :O]
     @current_turn = @players[0]
+    @in_progress = false
   end
 
   def start
+    @in_progress = true
     @board = Array.new(9)
     print_instructions
   end
@@ -17,6 +19,10 @@ class Game
     @board[field] = @current_turn
     print_board
     switch_turns
+  end
+
+  def in_progress?
+    @in_progress
   end
 
   private
