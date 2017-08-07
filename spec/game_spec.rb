@@ -8,8 +8,14 @@ describe Game do
   end
 
   describe '#start' do
-    it 'prints an empty board' do
-      3.times { expect(STDOUT).to receive(:puts).with('| | | |') }
+    it 'prints an empty board and some instructions' do
+      expect(STDOUT).to receive(:puts).with('Welcome to Tic Tac Toe!')
+      expect(STDOUT).to receive(:puts).with("Enter 'game.play(n)' to take a turn, where n is the grid space you want to claim")
+      expect(STDOUT).to receive(:puts).with('Below is the board with the field numbers shown - remember them well!')
+      expect(STDOUT).to receive(:puts).with('|0|1|2|')
+      expect(STDOUT).to receive(:puts).with('|3|4|5|')
+      expect(STDOUT).to receive(:puts).with('|6|7|8|')
+      expect(STDOUT).to receive(:puts).with('X: your turn!')
       game.start
     end
   end

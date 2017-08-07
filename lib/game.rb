@@ -8,7 +8,13 @@ class Game
   end
 
   def start
-    print_board
+    puts 'Welcome to Tic Tac Toe!'
+    puts "Enter 'game.play(n)' to take a turn, where n is the grid space you want to claim"
+    puts 'Below is the board with the field numbers shown - remember them well!'
+    puts '|0|1|2|'
+    puts '|3|4|5|'
+    puts '|6|7|8|'
+    puts 'X: your turn!'
   end
 
   def play(field)
