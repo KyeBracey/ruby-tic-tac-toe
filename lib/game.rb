@@ -15,6 +15,7 @@ class Game
   end
 
   def play(field)
+    fail "Game is not in progress - please use 'game.start' to begin" unless in_progress?
     fail 'Cannot claim a field which is already taken - please try again' unless @board[field].nil?
     @board[field] = @current_turn
     print_board

@@ -29,17 +29,20 @@ describe Game do
 
   describe '#play' do
     it 'updates the specified field with "X" on the first turn' do
+      game.start
       game.play(0)
       expect(game.board).to eq([:X, nil, nil, nil, nil, nil, nil, nil, nil])
     end
 
     it 'updates the specified field with "X" on the first turn and "0" on the second turn' do
+      game.start
       game.play(5)
       game.play(8)
       expect(game.board).to eq([nil, nil, nil, nil, nil, :X, nil, nil, :O])
     end
 
     it 'prints the updated board' do
+      game.start
       expect(STDOUT).to receive(:puts).with('| | | |')
       expect(STDOUT).to receive(:puts).with('| |X| |')
       expect(STDOUT).to receive(:puts).with('| | | |')
@@ -51,8 +54,13 @@ describe Game do
     end
 
     it 'throws an error if the field is already taken' do
+      game.start
       game.play(0)
       expect { game.play(0) }.to raise_error('Cannot claim a field which is already taken - please try again')
+    end
+
+    it 'throws an error if the game has not been started' do
+      expect { game.play(0) }.to raise_error("Game is not in progress - please use 'game.start' to begin")
     end
   end
 
