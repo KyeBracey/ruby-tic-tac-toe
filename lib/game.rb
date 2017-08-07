@@ -8,6 +8,7 @@ class Game
   end
 
   def start
+    @board = Array.new(9)
     print_instructions
   end
 

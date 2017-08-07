@@ -4,7 +4,7 @@ describe Game do
   subject(:game) { described_class.new }
 
   it 'Begins with an empty board' do
-    expect(game.board).to eq([nil, nil, nil, nil, nil, nil, nil, nil, nil])
+    expect(game.board).to eq(Array.new(9))
   end
 
   describe '#start' do
@@ -17,6 +17,13 @@ describe Game do
       expect(STDOUT).to receive(:puts).with('|6|7|8|')
       expect(STDOUT).to receive(:puts).with('X: your turn!')
       game.start
+    end
+
+    it 'clears the board if the game was in progress' do
+      game.start
+      game.play(0)
+      game.start
+      expect(game.board).to eq(Array.new(9))
     end
   end
 
