@@ -58,6 +58,12 @@ describe Game do
     it 'throws an error if the game has not been started' do
       expect { game.play(0) }.to raise_error("Game is not in progress - please use 'game.start' to begin")
     end
+
+    it 'throws an error if the passed-in number is not between 0 and 8' do
+      game.start
+      expect { game.play(10) }.to raise_error('Please enter a number between 0-8 inclusive')
+      expect { game.play(-1) }.to raise_error('Please enter a number between 0-8 inclusive')
+    end
   end
 
   describe '#in_progress?' do

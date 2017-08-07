@@ -14,6 +14,7 @@ class Game
   end
 
   def play(field)
+    fail 'Please enter a number between 0-8 inclusive' unless field >= 0 && field <= 8
     fail "Game is not in progress - please use 'game.start' to begin" unless in_progress?
     fail 'Cannot claim a field which is already taken - please try again' unless @board[field].nil?
     @board[field] = @current_turn
