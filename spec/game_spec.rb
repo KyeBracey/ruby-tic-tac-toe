@@ -42,5 +42,10 @@ describe Game do
       expect(STDOUT).to receive(:puts).with('| | | |')
       game.play(0)
     end
+
+    it 'throws an error if the field is already taken' do
+      game.play(0)
+      expect { game.play(0) }.to raise_error('Cannot claim a field which is already taken - please try again')
+    end
   end
 end

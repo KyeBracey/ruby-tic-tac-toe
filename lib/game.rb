@@ -16,6 +16,7 @@ class Game
   end
 
   def play(field)
+    fail 'Cannot claim a field which is already taken - please try again' unless @board[field].nil?
     @board[field] = @current_turn
     print_board
     switch_turns
