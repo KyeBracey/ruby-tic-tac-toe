@@ -2,7 +2,6 @@ class Game
   attr_reader :board
 
   def initialize
-    @board = Array.new(9)
     @players = [:X, :O]
     @current_turn = @players[0]
     @in_progress = false

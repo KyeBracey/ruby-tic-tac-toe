@@ -3,10 +3,6 @@ require 'game'
 describe Game do
   subject(:game) { described_class.new }
 
-  it 'Begins with an empty board' do
-    expect(game.board).to eq(Array.new(9))
-  end
-
   describe '#start' do
     it 'prints an empty board and some instructions' do
       expect(STDOUT).to receive(:puts).with('Welcome to Tic Tac Toe!')
