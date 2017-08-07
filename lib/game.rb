@@ -1,6 +1,17 @@
 class Game
   attr_reader :board
 
+  WINNING_ROWS = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ]
+
   def initialize
     @players = [:X, :O]
     @current_turn = @players[0]
@@ -20,6 +31,7 @@ class Game
     @board[field] = @current_turn
     print_board
     switch_turns
+    @in_progress = false if winning_player
   end
 
   def in_progress?
@@ -46,6 +58,11 @@ class Game
     puts 'Below is the board with the field numbers shown - remember them well!'
     print_board_with_numbers
     puts 'X: your turn!'
+  end
+
+  def winning_player
+    return :X if WINNING_ROWS.include?(@board.each_index.select { |i| @board[i] == :X })
+    return :O if WINNING_ROWS.include?(@board.each_index.select { |i| @board[i] == :O })
   end
 
   def switch_turns

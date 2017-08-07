@@ -75,5 +75,15 @@ describe Game do
       game.start
       expect(game.in_progress?).to eq(true)
     end
+
+    it 'returns false if a player has won' do
+      game.start
+      game.play(0)
+      game.play(3)
+      game.play(1)
+      game.play(4)
+      game.play(2)
+      expect(game.in_progress?).to eq(false)
+    end
   end
 end
