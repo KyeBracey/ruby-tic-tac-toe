@@ -82,7 +82,7 @@ describe Game do
       game.play(6)
     end
 
-    it 'Declares the game over and the winning player when somebody wins' do
+    it 'Declares the game over and the winning player when player 1 wins' do
       game.start
       game.play(0)
       game.play(3)
@@ -92,6 +92,20 @@ describe Game do
       expect(STDOUT).to receive(:puts).with('|O|O| |')
       expect(STDOUT).to receive(:puts).with('| | | |')
       expect(STDOUT).to receive(:puts).with('Game over! X wins!')
+      game.play(2)
+    end
+
+    it 'Declares the game over and the winning player when player 2 wins' do
+      game.start
+      game.play(3)
+      game.play(0)
+      game.play(4)
+      game.play(1)
+      game.play(8)
+      expect(STDOUT).to receive(:puts).with('|O|O|O|')
+      expect(STDOUT).to receive(:puts).with('|X|X| |')
+      expect(STDOUT).to receive(:puts).with('| | |X|')
+      expect(STDOUT).to receive(:puts).with('Game over! O wins!')
       game.play(2)
     end
   end

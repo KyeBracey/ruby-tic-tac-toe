@@ -42,7 +42,7 @@ class Game
     print_board
     switch_turns
     @in_progress = false if winning_player || !board.include?(nil)
-    puts 'Game over! X wins!' if winning_player == :X
+    puts "Game over! #{winning_player} wins!" if winning_player
     puts 'Game over! Nobody wins.' unless winning_player || board.include?(nil)
   end
 
