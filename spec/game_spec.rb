@@ -92,5 +92,15 @@ describe Game do
       game.start
       expect(game.winner).to eq(nil)
     end
+
+    it 'Returns :X when player 1 wins' do
+      game.start
+      game.play(0)
+      game.play(3)
+      game.play(1)
+      game.play(4)
+      game.play(2)
+      expect(game.winner).to eq(:X)
+    end
   end
 end

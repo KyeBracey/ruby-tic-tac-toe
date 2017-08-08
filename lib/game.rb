@@ -61,7 +61,7 @@ class Game
   end
 
   def winning_player
-    return :X if WINNING_ROWS.include?(@board.each_index.select { |i| @board[i] == :X })
+    return @winner = :X if WINNING_ROWS.include?(@board.each_index.select { |i| @board[i] == :X })
     return :O if WINNING_ROWS.include?(@board.each_index.select { |i| @board[i] == :O })
   end
 
