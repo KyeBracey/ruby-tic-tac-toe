@@ -62,7 +62,7 @@ class Game
 
   def winning_player
     return @winner = :X if WINNING_ROWS.include?(@board.each_index.select { |i| @board[i] == :X })
-    return :O if WINNING_ROWS.include?(@board.each_index.select { |i| @board[i] == :O })
+    @winner = :O if WINNING_ROWS.include?(@board.each_index.select { |i| @board[i] == :O })
   end
 
   def switch_turns

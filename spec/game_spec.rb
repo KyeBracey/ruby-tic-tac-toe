@@ -102,5 +102,16 @@ describe Game do
       game.play(2)
       expect(game.winner).to eq(:X)
     end
+
+    it 'Returns :O when player 2 wins' do
+      game.start
+      game.play(3)
+      game.play(0)
+      game.play(4)
+      game.play(1)
+      game.play(8)
+      game.play(2)
+      expect(game.winner).to eq(:O)
+    end
   end
 end
