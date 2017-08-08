@@ -1,5 +1,5 @@
 class Game
-  attr_reader :board
+  attr_reader :board, :winner
 
   WINNING_ROWS = [
     [0, 1, 2],

@@ -86,4 +86,11 @@ describe Game do
       expect(game.in_progress?).to eq(false)
     end
   end
+
+  describe '#winner' do
+    it 'Returns nil at the start of the game' do
+      game.start
+      expect(game.winner).to eq(nil)
+    end
+  end
 end
