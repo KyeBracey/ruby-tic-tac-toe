@@ -19,6 +19,7 @@ class Game
   end
 
   def start
+    @winner = nil
     @in_progress = true
     @board = Array.new(9)
     print_instructions

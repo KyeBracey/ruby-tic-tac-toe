@@ -113,5 +113,16 @@ describe Game do
       game.play(2)
       expect(game.winner).to eq(:O)
     end
+
+    it 'Resets to nil when a new game is started' do
+      game.start
+      game.play(0)
+      game.play(3)
+      game.play(1)
+      game.play(4)
+      game.play(2)
+      game.start
+      expect(game.winner).to eq(nil)
+    end
   end
 end
