@@ -41,6 +41,10 @@ class Game
     @board[field] = @current_turn
     print_board
     switch_turns
+    finish_if_game_over
+  end
+
+  def finish_if_game_over
     @in_progress = false if winning_player || !board.include?(nil)
     puts "Game over! #{winning_player} wins!" if winning_player
     puts 'Game over! Nobody wins.' unless winning_player || board.include?(nil)
