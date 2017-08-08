@@ -72,8 +72,10 @@ class Game
   end
 
   def winning_player
-    return @winner = :X if WINNING_ROWS.include?(@board.each_index.select { |i| @board[i] == :X })
-    @winner = :O if WINNING_ROWS.include?(@board.each_index.select { |i| @board[i] == :O })
+    x_fields = @board.each_index.select { |i| @board[i] == :X }
+    o_fields = @board.each_index.select { |i| @board[i] == :O }
+    return @winner = :X if WINNING_ROWS.any? { |set| (set - x_fields).empty? }
+    @winner = :O if WINNING_ROWS.any? { |set| (set - o_fields).empty? }
   end
 
   def switch_turns

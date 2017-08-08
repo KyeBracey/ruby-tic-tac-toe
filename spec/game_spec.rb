@@ -143,6 +143,31 @@ describe Game do
       game.play(6)
       expect(game.in_progress?).to eq(false)
     end
+
+    it 'returns true if player 1 wins with more than three turns' do
+      game.start
+      game.play(0)
+      game.play(3)
+      game.play(1)
+      game.play(4)
+      game.play(7)
+      game.play(8)
+      game.play(2)
+      expect(game.in_progress?).to eq(false)
+    end
+
+    it 'returns true if player 2 wins with more than three turns' do
+      game.start
+      game.play(0)
+      game.play(3)
+      game.play(1)
+      game.play(4)
+      game.play(7)
+      game.play(8)
+      game.play(6)
+      game.play(5)
+      expect(game.in_progress?).to eq(false)
+    end
   end
 
   describe '#winner' do
