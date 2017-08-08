@@ -81,6 +81,19 @@ describe Game do
       expect(STDOUT).to receive(:puts).with('Game over! Nobody wins.')
       game.play(6)
     end
+
+    it 'Declares the game over and the winning player when somebody wins' do
+      game.start
+      game.play(0)
+      game.play(3)
+      game.play(1)
+      game.play(4)
+      expect(STDOUT).to receive(:puts).with('|X|X|X|')
+      expect(STDOUT).to receive(:puts).with('|O|O| |')
+      expect(STDOUT).to receive(:puts).with('| | | |')
+      expect(STDOUT).to receive(:puts).with('Game over! X wins!')
+      game.play(2)
+    end
   end
 
   describe '#in_progress?' do
