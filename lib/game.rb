@@ -32,7 +32,7 @@ class Game
     @board[field] = @current_turn
     print_board
     switch_turns
-    @in_progress = false if winning_player
+    @in_progress = false if winning_player || !board.include?(nil)
   end
 
   def in_progress?

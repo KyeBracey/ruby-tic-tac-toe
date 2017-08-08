@@ -85,6 +85,20 @@ describe Game do
       game.play(2)
       expect(game.in_progress?).to eq(false)
     end
+
+    it 'returns false if the board is filled' do
+      game.start
+      game.play(0)
+      game.play(1)
+      game.play(2)
+      game.play(3)
+      game.play(5)
+      game.play(4)
+      game.play(7)
+      game.play(8)
+      game.play(6)
+      expect(game.in_progress?).to eq(false)
+    end
   end
 
   describe '#winner' do
