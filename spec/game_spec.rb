@@ -64,6 +64,23 @@ describe Game do
       expect { game.play(10) }.to raise_error('Please enter a number between 0-8 inclusive')
       expect { game.play(-1) }.to raise_error('Please enter a number between 0-8 inclusive')
     end
+
+    it 'prints a game-over message if the board is filled' do
+      game.start
+      game.play(0)
+      game.play(1)
+      game.play(2)
+      game.play(3)
+      game.play(5)
+      game.play(4)
+      game.play(7)
+      game.play(8)
+      expect(STDOUT).to receive(:puts).with('|X|O|X|')
+      expect(STDOUT).to receive(:puts).with('|O|O|X|')
+      expect(STDOUT).to receive(:puts).with('|X|X|O|')
+      expect(STDOUT).to receive(:puts).with('Game over! Nobody wins.')
+      game.play(6)
+    end
   end
 
   describe '#in_progress?' do

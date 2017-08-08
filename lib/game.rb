@@ -42,6 +42,7 @@ class Game
     print_board
     switch_turns
     @in_progress = false if winning_player || !board.include?(nil)
+    puts 'Game over! Nobody wins.' unless winning_player || board.include?(nil)
   end
 
   def print_board_with_numbers
